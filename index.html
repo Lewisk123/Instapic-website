@@ -226,8 +226,20 @@ color:#c6a46a;
 transform:translateY(-2px);
 }
 @media(max-width:950px){
+.nav nav{display:none}
+.hero{min-height:92vh;padding-top:105px}
+.hero-stats{position:relative;left:auto;right:auto;bottom:auto;margin-top:44px;grid-template-columns:1fr}
+.section-head{display:block}
+.service-grid,.story,.gallery-grid,.package-grid{grid-template-columns:1fr}
+.gallery-card.large{grid-row:auto;min-height:440px}
+.service-card{min-height:430px}
+.story-image{min-height:430px}
+.feature-list{grid-template-columns:1fr}
+.stats-grid{grid-template-columns:1fr 1fr}
+.trust-strip{grid-template-columns:1fr}
 footer{display:block}
-h1</style>
+h1{font-size:clamp(46px,14vw,78px)}
+</style>
 </head>
 <body>
 <header class="nav"><a class="brand" href="#">INSTAPIC <span>EVENTS</span></a><nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#packages">Packages</a><a class="pill" href="/contact.html">Get a Quote</a></nav></header>
