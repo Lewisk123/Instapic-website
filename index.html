@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Instapic Events — Image Rich Concept</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  --cream:#fbf6f0;
+  --soft:#efe2d6;
+  --blush:#d8b7aa;
+  --champagne:#c7a26b;
+  --ink:#171313;
+  --muted:#766b64;
+  --dark:#111010;
+  --white:#fffaf6;
+}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+img{width:100%;height:100%;object-fit:cover;display:block}
+a{text-decoration:none;color:inherit}
+.nav{
+  position:fixed;top:0;width:100%;z-index:30;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 6vw;background:rgba(251,246,240,.82);
+  backdrop-filter:blur(18px);border-bottom:1px solid rgba(0,0,0,.06)
+}
+.logo{font-weight:900;letter-spacing:.13em;font-size:18px}
+.logo span{color:var(--champagne)}
+.nav nav{display:flex;gap:26px;font-size:13px;text-transform:uppercase;letter-spacing:.12em}
+.nav .pill{border:1px solid var(--ink);padding:10px 16px;border-radius:999px}
+
+.hero{
+  min-height:100vh;padding:115px 6vw 70px;
+  display:grid;grid-template-columns:1fr .92fr;gap:48px;align-items:center;
+  background:radial-gradient(circle at 78% 12%,rgba(216,183,170,.5),transparent 33%),linear-gradient(180deg,#fffaf6,var(--cream))
+}
+.kicker{text-transform:uppercase;letter-spacing:.28em;font-size:11px;font-weight:800;color:var(--champagne)}
+h1,h2,h3,p{margin-top:0}
+h1{font-family:Georgia,serif;font-size:clamp(52px,7vw,104px);line-height:.88;letter-spacing:-.06em;margin:18px 0 24px}
+h2{font-family:Georgia,serif;font-size:clamp(38px,5.8vw,76px);line-height:.95;letter-spacing:-.05em;margin:16px 0}
+.lead{font-size:19px;line-height:1.75;color:var(--muted);max-width:620px}
+.buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-block;padding:16px 23px;border-radius:999px;font-weight:900;text-transform:uppercase;letter-spacing:.08em;font-size:12px}
+.btn.dark{background:var(--ink);color:white}.btn.light{border:1px solid rgba(0,0,0,.18);background:white;color:var(--ink)}
+
+.hero-media{position:relative;min-height:650px}
+.hero-main{position:absolute;inset:0;border-radius:34px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.18)}
+.hero-small{
+  position:absolute;left:-38px;bottom:42px;width:260px;height:330px;border-radius:24px;overflow:hidden;
+  border:8px solid var(--cream);box-shadow:0 25px 65px rgba(0,0,0,.2)
+}
+.badge{
+  position:absolute;right:24px;top:24px;background:rgba(255,250,246,.9);backdrop-filter:blur(16px);
+  padding:18px 20px;border-radius:999px;font-weight:900;color:var(--ink)
+}
+
+.strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--dark);color:white}
+.strip div{padding:26px 3vw;border-right:1px solid rgba(255,255,255,.12)}
+.strip strong{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--champagne);margin-bottom:8px}
+.strip span{font-size:14px;color:rgba(255,255,255,.72);line-height:1.5}
+
+.intro{padding:105px 6vw;text-align:center;max-width:1100px;margin:auto}
+.intro p{font-size:18px;line-height:1.75;color:var(--muted)}
+
+.image-row{padding:0 6vw 105px;display:grid;grid-template-columns:1.2fr .8fr .8fr;gap:18px}
+.image-card{height:420px;border-radius:30px;overflow:hidden;position:relative;box-shadow:0 20px 55px rgba(0,0,0,.12)}
+.image-card.tall{height:540px}
+.image-card span{
+  position:absolute;left:22px;bottom:22px;color:white;font-weight:900;text-transform:uppercase;letter-spacing:.12em;
+  text-shadow:0 5px 20px rgba(0,0,0,.65)
+}
+.image-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.55))}
+
+.showcase{padding:0 6vw 110px}
+.section-title{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:34px}
+.section-title p{max-width:430px;color:var(--muted);line-height:1.7}
+.service-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px}
+.service-card{
+  min-height:430px;border-radius:30px;overflow:hidden;position:relative;display:grid;align-items:end;
+  box-shadow:0 22px 55px rgba(0,0,0,.12);isolation:isolate;background:#ddd
+}
+.service-card img{position:absolute;inset:0;z-index:-2}
+.service-card:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 36%,rgba(0,0,0,.78));z-index:-1}
+.service-card.large{min-height:650px}
+.service-card .copy{padding:34px;color:white}
+.service-card h3{font-family:Georgia,serif;font-size:42px;letter-spacing:-.04em;margin-bottom:10px}
+.service-card p{color:rgba(255,255,255,.82);line-height:1.6;max-width:470px}
+.two-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+
+.editorial{display:grid;grid-template-columns:.92fr 1.08fr;background:var(--dark);color:white}
+.editorial-image{min-height:650px}
+.editorial-copy{padding:90px 6vw;align-self:center}
+.editorial-copy h2{font-family:Georgia,serif;font-size:clamp(38px,5vw,72px);line-height:.96;letter-spacing:-.05em}
+.editorial-copy p{color:rgba(255,255,255,.75);line-height:1.75;font-size:17px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2f2b28;margin-top:40px}
+.features div{background:#191716;padding:30px}.features h3{font-size:18px;color:white}.features p{color:rgba(255,255,255,.62);line-height:1.6}
+
+.gallery{padding:110px 6vw}
+.gallery-mosaic{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+.tile{height:320px;border-radius:24px;overflow:hidden;box-shadow:0 16px 35px rgba(0,0,0,.1)}
+.cta{margin:0 6vw 90px;border-radius:34px;text-align:center;padding:90px 6vw;background:var(--dark);color:white;position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;opacity:.36}
+.cta-content{position:relative;z-index:2}
+.cta h2{font-family:Georgia,serif;font-size:clamp(40px,6vw,80px);line-height:.95;letter-spacing:-.05em}
+.cta p{color:rgba(255,255,255,.78);font-size:18px;line-height:1.7;max-width:650px;margin:0 auto 28px}
+footer{padding:38px 6vw;background:#070707;color:white;display:flex;justify-content:space-between;gap:28px}
+footer p{color:rgba(255,255,255,.62);max-width:650px;line-height:1.6;margin:0}
+
+@media(max-width:900px){
+  .nav nav{display:none}
+  .hero,.service-grid,.two-grid,.editorial,.features,.gallery-mosaic,.strip,.image-row{grid-template-columns:1fr}
+  .hero{padding-top:95px}
+  .hero-media{min-height:560px}
+  .hero-small{left:18px;bottom:18px;width:210px;height:260px}
+  .badge{font-size:13px;right:16px;top:16px}
+  .section-title{display:block}
+  .service-card.large,.service-card{min-height:430px}
+  .editorial-image{min-height:380px}
+  .image-card,.image-card.tall{height:360px}
+  .strip div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  footer{display:block}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo">INSTAPIC<span> EVENTS</span></div>
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#weddings">Weddings</a>
+    <a href="#gallery">Gallery</a>
+    <a class="pill" href="#contact">Enquire</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <p class="kicker">Luxury event hire Scotland</p>
+    <h1>Make the room feel unforgettable.</h1>
+    <p class="lead">Premium photo booth, magic mirror, LED dance floor and event styling hire for weddings, parties and corporate celebrations across Scotland.</p>
+    <div class="buttons">
+      <a href="#contact" class="btn dark">Check availability</a>
+      <a href="#services" class="btn light">Explore services</a>
+    </div>
+  </div>
+
+  <div class="hero-media">
+    <div class="hero-main">
+      <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Luxury wedding reception" />
+    </div>
+    <div class="hero-small">
+      <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=700&q=80" alt="Guests celebrating at event" />
+    </div>
+    <div class="badge">200+ positive reviews</div>
+  </div>
+</section>
+
+<section class="strip">
+  <div><strong>Premium setups</strong><span>Clean, polished and wedding-ready presentation.</span></div>
+  <div><strong>Guest focused</strong><span>Easy to use, fun to interact with, brilliant for memories.</span></div>
+  <div><strong>Scotland wide</strong><span>Serving venues, private events and celebrations.</span></div>
+  <div><strong>Multiple services</strong><span>Booths, floors, walls, arches, letters and more.</span></div>
+</section>
+
+<section class="intro">
+  <p class="kicker">Not just equipment hire</p>
+  <h2>Everything you need to style, entertain and elevate the night.</h2>
+  <p>Instapic is built around the moments people actually remember — the laughs in the booth, the first dance on the floor, the photos in front of the flower wall and the details that make the room feel complete.</p>
+</section>
+
+<section class="image-row">
+  <div class="image-card tall">
+    <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=1200&q=80" alt="Luxury wedding venue setup" />
+    <span>Room Styling</span>
+  </div>
+  <div class="image-card">
+    <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=900&q=80" alt="Party dance floor lighting" />
+    <span>Dance Floors</span>
+  </div>
+  <div class="image-card">
+    <img src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80" alt="Wedding floral decor" />
+    <span>Flower Walls</span>
+  </div>
+</section>
+
+<section id="services" class="showcase">
+  <div class="section-title">
+    <div>
+      <p class="kicker">Signature services</p>
+      <h2>Event hire that looks the part.</h2>
+    </div>
+    <p>Sample imagery is coded directly into the page. Later, we replace every image with your real booth, mirror, dance floor, flower wall, arch and light-up letter photos.</p>
+  </div>
+
+  <div class="service-grid">
+    <article class="service-card large">
+      <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac?auto=format&fit=crop&w=1200&q=80" alt="Photo booth style guest photo moment" />
+      <div class="copy">
+        <h3>Photo Booth Hire</h3>
+        <p>Classic guest entertainment with instant prints, custom templates and a setup that fits beautifully into the room.</p>
+      </div>
+    </article>
+
+    <div>
+      <article class="service-card">
+        <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=1200&q=80" alt="Mirror style wedding portrait" />
+        <div class="copy">
+          <h3>Magic Mirror</h3>
+          <p>Interactive, elegant and ideal for weddings, parties and corporate events.</p>
+        </div>
+      </article>
+      <div class="two-grid">
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=900&q=80" alt="Event dance floor lighting" />
+          <div class="copy">
+            <h3>LED Floors</h3>
+            <p>The centrepiece that gets guests moving.</p>
+          </div>
+        </article>
+        <article class="service-card">
+          <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=80" alt="Wedding flower styling" />
+          <div class="copy">
+            <h3>Flower Walls</h3>
+            <p>High-impact photo backdrops and styling.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="weddings" class="editorial">
+  <div class="editorial-image">
+    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80" alt="Elegant wedding reception" />
+  </div>
+  <div class="editorial-copy">
+    <p class="kicker">For weddings, birthdays & brands</p>
+    <h2>A luxury feel without the stiff, boring energy.</h2>
+    <p>This direction gives Instapic a higher-end feel while still keeping the fun. It’s clean enough for luxury weddings, but still energetic enough for birthdays, proms and corporate nights.</p>
+    <div class="features">
+      <div><h3>Better enquiry flow</h3><p>Clear sections guide visitors toward checking availability.</p></div>
+      <div><h3>More premium trust</h3><p>Luxury spacing, editorial imagery and confident wording.</p></div>
+      <div><h3>Easy to expand</h3><p>Add service pages, packages, galleries and FAQs later.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="gallery" class="gallery">
+  <p class="kicker">Gallery direction</p>
+  <div class="section-title">
+    <h2>Big visuals. Less clutter. More desire.</h2>
+    <p>The sample photos show the type of polished visual direction. Your real event photos would make this feel properly personal and trustworthy.</p>
+  </div>
+  <div class="gallery-mosaic">
+    <div class="tile"><img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=80" alt="Wedding detail styling" /></div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=900&q=80" alt="Guests dancing at an event" /></div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=900&q=80" alt="Celebration and floral decor" /></div>
+    <div class="tile"><img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=900&q=80" alt="Wedding venue lighting" /></div>
+  </div>
+</section>
+
+<section id="contact" class="cta">
+  <div class="cta-bg"><img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=1500&q=80" alt="Party lighting background" /></div>
+  <div class="cta-content">
+    <p class="kicker">Check your date</p>
+    <h2>Ready to make your event look unreal?</h2>
+    <p>Tell us your date, venue and the services you’re interested in. We’ll come back with availability and package options.</p>
+    <a href="mailto:hello@instapicphotobooth.co.uk" class="btn light">Start an enquiry</a>
+  </div>
+</section>
+
+<footer>
+  <div class="logo">INSTAPIC<span> EVENTS</span></div>
+  <p>Photo booth, magic mirror, LED dance floor, flower wall, floral arch and light-up letter hire across Scotland.</p>
+</footer>
+
+</body>
+</html>
