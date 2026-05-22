@@ -315,7 +315,53 @@ window.addEventListener('scroll', () => {
     }
   });
 });
-</script><a href="/contact.html" style="
+</script><script>
+const counters = document.querySelectorAll('.stat-card h3');
+
+const animateCounter = (counter) => {
+  const target = counter.innerText;
+
+  let numeric = parseInt(target.replace(/\D/g,''));
+  let count = 0;
+
+  const update = () => {
+    const increment = numeric / 60;
+
+    count += increment;
+
+    if(count < numeric){
+      counter.innerText =
+        Math.floor(count) +
+        (target.includes('+') ? '+' : '');
+
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
+  };
+
+  update();
+};
+
+const statsObserver = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+
+      const counter = entry.target.querySelector('h3');
+
+      if(counter && !counter.classList.contains('counted')){
+        counter.classList.add('counted');
+        animateCounter(counter);
+      }
+
+    }
+  });
+},{threshold:.4});
+
+document.querySelectorAll('.stat-card').forEach(card=>{
+  statsObserver.observe(card);
+});
+</script>a href="/contact.html" style="
 position:fixed;
 right:20px;
 bottom:20px;
