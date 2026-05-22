@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Build Your Package | Instapic Events</title>
+<meta name="description" content="Build your Instapic Events package. Select LED dance floors, light-up letters, flower walls, floral arches, photo booths, magic mirrors and event styling across Scotland." />
+<link rel="icon" type="image/png" href="/favicon.png">
+
+<style>
+*{box-sizing:border-box}
+:root{
+  --ink:#0b0a09;
+  --dark:#12100f;
+  --cream:#f7eee4;
+  --champagne:#c6a46a;
+  --muted:#8f8277;
+}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden}
+img{width:100%;height:100%;object-fit:cover;display:block}
+a{text-decoration:none;color:inherit}
+
+.nav{
+position:fixed;top:0;width:100%;z-index:50;
+display:flex;justify-content:space-between;align-items:center;
+padding:18px 6vw;background:rgba(12,10,9,.76);
+backdrop-filter:blur(24px);color:white;border-bottom:1px solid rgba(255,255,255,.08)
+}
+.brand{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:15px}
+.brand span{color:var(--champagne)}
+.nav nav{display:flex;gap:26px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.14em}
+.nav .pill{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:11px 16px}
+
+.hero{
+min-height:76vh;position:relative;display:grid;align-items:end;
+padding:140px 6vw 86px;color:white;overflow:hidden;isolation:isolate;
+}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg:after{
+content:"";position:absolute;inset:0;
+background:linear-gradient(90deg,rgba(5,4,3,.86),rgba(5,4,3,.52),rgba(5,4,3,.18)),
+linear-gradient(180deg,rgba(0,0,0,.10),rgba(0,0,0,.78));
+}
+.kicker{text-transform:uppercase;letter-spacing:.28em;color:var(--champagne);font-weight:900;font-size:12px}
+h1,h2,h3,p{margin-top:0}
+h1{font-family:Georgia,serif;font-size:clamp(50px,8vw,104px);line-height:.9;letter-spacing:-.065em;margin:18px 0 24px}
+h2{font-family:Georgia,serif;font-size:clamp(34px,5.5vw,70px);line-height:.95;letter-spacing:-.055em;margin:12px 0 20px}
+.hero p{font-size:19px;line-height:1.7;color:rgba(255,255,255,.82);max-width:780px}
+
+.intro-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#ded1c4}
+.intro-card{background:#fffaf5;padding:34px 5vw}
+.intro-card strong{display:block;color:var(--champagne);text-transform:uppercase;letter-spacing:.14em;font-size:12px;margin-bottom:10px}
+.intro-card p{color:var(--muted);line-height:1.65;margin:0}
+
+.builder-section{padding:90px 6vw 110px}
+.builder-layout{
+max-width:1280px;margin:0 auto;
+display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:start;
+}
+.builder-panel{
+background:white;border-radius:34px;overflow:hidden;
+box-shadow:0 28px 80px rgba(0,0,0,.13);
+}
+.panel-head{background:#12100f;color:white;padding:42px}
+.panel-head p{color:rgba(255,255,255,.72);line-height:1.7;margin:0}
+.form-area{padding:38px}
+
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field{margin-bottom:20px}
+label{display:block;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:9px;color:#251f1b}
+input,select,textarea{
+width:100%;padding:15px 16px;border:1px solid #ddd1c6;border-radius:14px;
+font-size:16px;background:#fffaf5;color:#16110f;
+}
+textarea{min-height:130px;resize:vertical}
+.full{grid-column:1/-1}
+
+.service-list{margin-top:24px}
+.service-card{
+border:1px solid #eadfd4;border-radius:24px;padding:20px;margin-bottom:14px;background:#fffaf5;
+display:grid;grid-template-columns:96px 1fr;gap:18px;align-items:center;
+}
+.service-img{height:96px;border-radius:18px;overflow:hidden;background:#ddd}
+.check-row{display:flex;gap:12px;align-items:center;font-weight:900;font-size:17px;margin-bottom:12px}
+.check-row input{width:20px;height:20px;accent-color:var(--champagne)}
+.detail{display:none;margin-top:12px}
+.detail.show{display:block}
+.note-small{font-size:13px;color:var(--muted);line-height:1.5;margin:7px 0 10px}
+
+.summary{
+position:sticky;top:96px;background:#12100f;color:white;border-radius:34px;overflow:hidden;
+box-shadow:0 28px 80px rgba(0,0,0,.18);
+}
+.summary-image{height:330px;position:relative}
+.summary-image:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.75))}
+.summary-title{position:absolute;left:26px;right:26px;bottom:22px;z-index:2}
+.summary-title h3{font-family:Georgia,serif;font-size:36px;letter-spacing:-.04em;margin:8px 0 0}
+.summary-body{padding:30px}
+.price-row{display:flex;justify-content:space-between;gap:20px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.78)}
+.price-row strong{color:white}
+.discount{color:var(--champagne)}
+.total{display:flex;justify-content:space-between;align-items:end;margin-top:25px}
+.total span{color:rgba(255,255,255,.62);font-size:13px;text-transform:uppercase;letter-spacing:.13em}
+.total strong{font-family:Georgia,serif;font-size:46px;color:var(--champagne)}
+.travel-note{margin-top:18px;color:rgba(255,255,255,.65);font-size:14px;line-height:1.65}
+.selected-list{margin:22px 0 0;padding:0;list-style:none;color:rgba(255,255,255,.75);line-height:1.8;font-size:14px}
+.selected-list li{border-bottom:1px solid rgba(255,255,255,.08);padding:8px 0}
+
+.actions{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+button,.btn{
+border:0;cursor:pointer;background:var(--champagne);color:#111;padding:17px 24px;border-radius:999px;
+font-weight:900;text-transform:uppercase;letter-spacing:.13em;font-size:12px;transition:all .28s ease;
+}
+button:hover,.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.25)}
+.btn.secondary{background:transparent;color:white;border:1px solid rgba(255,255,255,.28)}
+
+.editorial{padding:0 6vw 110px}
+.editorial-inner{max-width:1280px;margin:0 auto}
+.editorial-head{display:flex;justify-content:space-between;gap:34px;align-items:end;margin-bottom:34px}
+.editorial-head p{max-width:520px;color:var(--muted);line-height:1.7;margin-bottom:0}
+.gallery-row{display:grid;grid-template-columns:1.15fr .85fr .85fr;gap:18px}
+.gallery-item{min-height:330px;border-radius:28px;overflow:hidden;position:relative;box-shadow:0 18px 44px rgba(0,0,0,.14)}
+.gallery-item.large{grid-row:span 2;min-height:680px}
+.gallery-item:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.62))}
+.gallery-item span{position:absolute;left:22px;bottom:20px;z-index:2;color:white;font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:12px}
+
+.quote-block{padding:100px 6vw;background:#12100f;color:white;text-align:center}
+.quote-block p{font-family:Georgia,serif;font-size:clamp(28px,4vw,56px);line-height:1.08;letter-spacing:-.045em;max-width:1050px;margin:0 auto 26px}
+.quote-block span{color:var(--champagne);text-transform:uppercase;letter-spacing:.18em;font-size:12px;font-weight:900}
+
+footer{
+padding:38px 6vw;background:#070605;color:rgba(255,255,255,.62);
+display:flex;justify-content:space-between;gap:30px;border-top:1px solid rgba(255,255,255,.1)
+}
+footer p{margin:0;max-width:650px;line-height:1.6}
+
+@media(max-width:950px){
+.nav nav{display:none}
+.nav{padding:18px 20px}
+.brand{font-size:18px}
+.hero{min-height:66vh;padding-top:115px}
+.intro-strip,.builder-layout,.gallery-row,.grid{grid-template-columns:1fr}
+.editorial-head{display:block}
+.summary{position:static}
+.service-card{grid-template-columns:1fr}
+.service-img{height:210px}
+.gallery-item.large{grid-row:auto;min-height:420px}
+.gallery-item{min-height:290px}
+footer{display:block}
+}
+</style>
+</head>
+
+<body>
+<header class="nav">
+<a class="brand" href="index.html">INSTAPIC <span>EVENTS</span></a>
+<nav>
+<a href="index.html#services">Services</a>
+<a href="index.html#gallery">Gallery</a>
+<a href="packages.html">Packages</a>
+<a class="pill" href="contact.html">Check Availability</a>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-bg">
+<img src="package-hero.jpeg" alt="Luxury ceremony styling with floral arch">
+</div>
+<div>
+<p class="kicker">Build your package</p>
+<h1>Create your perfect event setup.</h1>
+<p>Select the services you’re interested in, see an estimated package total, and send your enquiry with everything already included.</p>
+</div>
+</section>
+
+<section class="intro-strip">
+<div class="intro-card"><strong>Simple pricing</strong><p>Choose your services and see a clear estimated total.</p></div>
+<div class="intro-card"><strong>Package savings</strong><p>Three items receive 10% off. Four or more receive 15% off.</p></div>
+<div class="intro-card"><strong>Final quote</strong><p>Travel and venue access may affect the final confirmed price.</p></div>
+</section>
+
+<section class="builder-section">
+<div class="builder-layout">
+
+<div class="builder-panel">
+<div class="panel-head">
+<p class="kicker">Instant estimate</p>
+<h2>Build your package.</h2>
+<p>Tick the services you’d like, choose any sizes or durations, then send the full package enquiry straight to Instapic Events.</p>
+</div>
+
+<div class="form-area">
+<form id="packageForm">
+<div class="grid">
+<div class="field"><label for="name">Full Name</label><input id="name" type="text" required></div>
+<div class="field"><label for="email">Email Address</label><input id="email" type="email" required></div>
+<div class="field"><label for="phone">Phone Number</label><input id="phone" type="tel"></div>
+<div class="field"><label for="date">Event Date</label><input id="date" type="date" required></div>
+<div class="field full"><label for="venue">Venue / Location</label><input id="venue" type="text" placeholder="Venue name or town/city" required></div>
+</div>
+
+<div class="service-list">
+
+<div class="service-card">
+<div class="service-img"><img src="package-letters.jpeg" alt="Light up letters"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="letters"> Light-Up Letters</label>
+<div class="detail" id="lettersDetail">
+<label for="lettersType">Letter Type</label>
+<select id="lettersType">
+<option value="120" data-label="LOVE Letters">LOVE Letters - £120</option>
+<option value="150" data-label="MR & MRS Letters">MR & MRS Letters - £150</option>
+<option value="custom" data-label="Custom Letters">Custom Letters - £40 per letter</option>
+</select>
+<div id="customLettersWrap" style="display:none;margin-top:12px;">
+<label for="customLettersText">Custom Wording</label>
+<input id="customLettersText" type="text" placeholder="Example: SMITH, PROM, GRAD">
+<p class="note-small">Custom letters are estimated at £40 per letter.</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-arch.jpeg" alt="Flower arch"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="arch"> Flower Arch</label>
+<div class="detail" id="archDetail">
+<label for="archStyle">Style</label>
+<select id="archStyle">
+<option>White Floral Arch - £190</option>
+<option>Pink Floral Arch - £190</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-evening.jpeg" alt="Flower wall"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="wall"> Flower Wall</label>
+<div class="detail" id="wallDetail">
+<label for="wallStyle">Style</label>
+<select id="wallStyle">
+<option>White Flower Wall - £150</option>
+<option>Pink Flower Wall - £150</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-numbers.jpeg" alt="LED numbers"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="numbers"> LED Numbers</label>
+<div class="detail" id="numbersDetail">
+<label for="numbersText">Numbers Required</label>
+<input id="numbersText" type="text" placeholder="Example: 18, 21, 30">
+<p class="note-small">Estimated at £100.</p>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-dancefloor.jpeg" alt="LED dance floor"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="dancefloor"> LED Dance Floor</label>
+<div class="detail" id="dancefloorDetail">
+<label for="dancefloorSize">Size</label>
+<select id="dancefloorSize">
+<option value="300">12x12 ft - £300</option>
+<option value="340">14x14 ft - £340</option>
+<option value="380">16x16 ft - £380</option>
+<option value="440">20x20 ft - £440</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-booth.jpeg" alt="Photo booth"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="photobooth"> Photo Booth</label>
+<div class="detail" id="photoboothDetail">
+<label for="photoBoothHours">Duration</label>
+<select id="photoBoothHours">
+<option value="269">2 Hours - £269</option>
+<option value="299">3 Hours - £299</option>
+<option value="349">4 Hours - £349</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-mirror.jpeg" alt="Magic mirror"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="mirror"> Magic Mirror</label>
+<div class="detail" id="mirrorDetail">
+<label for="mirrorHours">Duration</label>
+<select id="mirrorHours">
+<option value="319">2 Hours - £319</option>
+<option value="369">3 Hours - £369</option>
+<option value="409">4 Hours - £409</option>
+</select>
+</div>
+</div>
+</div>
+
+<div class="service-card">
+<div class="service-img"><img src="package-fullsetup.jpeg" alt="LED backdrop"></div>
+<div>
+<label class="check-row"><input type="checkbox" class="item-toggle" data-item="backdrop"> LED Backdrop</label>
+<div class="detail" id="backdropDetail">
+<p class="note-small">LED backdrop estimated at £250.</p>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="field full">
+<label for="notes">Extra Details</label>
+<textarea id="notes" placeholder="Tell us anything useful — timings, venue access, setup ideas, colour preferences, or special requests."></textarea>
+</div>
+
+<div class="actions">
+<button type="submit">Send Package Enquiry</button>
+</div>
+</form>
+</div>
+</div>
+
+<aside class="summary">
+<div class="summary-image">
+<img src="package-weddingfloor.jpeg" alt="Luxury wedding dance floor and letters">
+<div class="summary-title">
+<p class="kicker">Your estimate</p>
+<h3>Package Summary</h3>
+</div>
+</div>
+
+<div class="summary-body">
+<div class="price-row"><span>Selected Items</span><strong id="itemCount">0</strong></div>
+<div class="price-row"><span>Subtotal</span><strong id="subtotal">£0</strong></div>
+<div class="price-row discount"><span>Package Saving</span><strong id="discount">£0</strong></div>
+
+<div class="total">
+<div><span>Estimated Total</span></div>
+<strong id="total">£0</strong>
+</div>
+
+<p class="travel-note">
+This is an estimated package price. Travel costs may apply depending on your location, venue access and final setup requirements.
+</p>
+
+<ul class="selected-list" id="selectedList">
+<li>No items selected yet.</li>
+</ul>
+
+<div class="actions">
+<a href="contact.html" class="btn secondary">General Enquiry</a>
+</div>
+</div>
+</aside>
+
+</div>
+</section>
+
+<section class="editorial">
+<div class="editorial-inner">
+<div class="editorial-head">
+<div>
+<p class="kicker">Package inspiration</p>
+<h2>Combine statement pieces for maximum impact.</h2>
+</div>
+<p>From full wedding room styling to birthday setups, photo entertainment and LED dance floors, your package can be built around the feel of your venue.</p>
+</div>
+
+<div class="gallery-row">
+<div class="gallery-item large"><img src="package-dancefloor.jpeg" alt="Luxury dance floor and white draping"><span>Dance Floor Packages</span></div>
+<div class="gallery-item"><img src="package-arch.jpeg" alt="Wedding ceremony arch"><span>Ceremony Styling</span></div>
+<div class="gallery-item"><img src="package-booth.jpeg" alt="Photo booth and numbers"><span>Photo Booths</span></div>
+<div class="gallery-item"><img src="package-mirror.jpeg" alt="Magic mirror hire"><span>Magic Mirror</span></div>
+<div class="gallery-item"><img src="package-evening.jpeg" alt="Birthday flower wall and booth"><span>Birthday Setups</span></div>
+</div>
+</div>
+</section>
+
+<section class="quote-block">
+<p>One supplier. One package. A full event setup that feels considered from the first photo to the final dance.</p>
+<span>Instapic Events Scotland</span>
+</section>
+
+<footer>
+<div class="brand">INSTAPIC <span>EVENTS</span></div>
+<p>Instapic Events — luxury dance floors, flower walls, floral arches, giant light-up letters, magic mirrors and photo booth hire across Scotland.</p>
+</footer>
+
+<script>
+const prices = {
+arch: 190,
+wall: 150,
+numbers: 100,
+backdrop: 250
+};
+
+const toggles = document.querySelectorAll('.item-toggle');
+const detailMap = {
+letters:'lettersDetail',
+arch:'archDetail',
+wall:'wallDetail',
+numbers:'numbersDetail',
+dancefloor:'dancefloorDetail',
+photobooth:'photoboothDetail',
+mirror:'mirrorDetail',
+backdrop:'backdropDetail'
+};
+
+toggles.forEach(toggle=>{
+toggle.addEventListener('change',()=>{
+const detail = document.getElementById(detailMap[toggle.dataset.item]);
+detail.classList.toggle('show', toggle.checked);
+updateTotals();
+});
+});
+
+document.querySelectorAll('select,input,textarea').forEach(el=>{
+el.addEventListener('input', updateTotals);
+el.addEventListener('change', updateTotals);
+});
+
+document.getElementById('lettersType').addEventListener('change',()=>{
+document.getElementById('customLettersWrap').style.display =
+document.getElementById('lettersType').value === 'custom' ? 'block' : 'none';
+updateTotals();
+});
+
+function cleanLetters(text){
+return (text || '').replace(/[^a-zA-Z0-9]/g,'');
+}
+
+function getPackage(){
+const selected = [];
+let subtotal = 0;
+const checked = id => document.querySelector(`[data-item="${id}"]`).checked;
+
+if(checked('letters')){
+const type = document.getElementById('lettersType');
+let price = 0;
+let label = type.options[type.selectedIndex].dataset.label;
+
+if(type.value === 'custom'){
+const text = document.getElementById('customLettersText').value || 'Custom letters';
+const count = cleanLetters(text).length || 1;
+price = count * 40;
+label = `${text} - Custom Light-Up Letters (${count} letters)`;
+} else {
+price = Number(type.value);
+}
+
+subtotal += price;
+selected.push({label, price});
+}
+
+if(checked('arch')){
+subtotal += prices.arch;
+selected.push({label:document.getElementById('archStyle').value, price:prices.arch});
+}
+
+if(checked('wall')){
+subtotal += prices.wall;
+selected.push({label:document.getElementById('wallStyle').value, price:prices.wall});
+}
+
+if(checked('numbers')){
+subtotal += prices.numbers;
+const nums = document.getElementById('numbersText').value || 'LED Numbers';
+selected.push({label:`${nums} - LED Numbers`, price:prices.numbers});
+}
+
+if(checked('dancefloor')){
+const sel = document.getElementById('dancefloorSize');
+const price = Number(sel.value);
+subtotal += price;
+selected.push({label:`LED Dance Floor - ${sel.options[sel.selectedIndex].text}`, price});
+}
+
+if(checked('photobooth')){
+const sel = document.getElementById('photoBoothHours');
+const price = Number(sel.value);
+subtotal += price;
+selected.push({label:`Photo Booth - ${sel.options[sel.selectedIndex].text}`, price});
+}
+
+if(checked('mirror')){
+const sel = document.getElementById('mirrorHours');
+const price = Number(sel.value);
+subtotal += price;
+selected.push({label:`Magic Mirror - ${sel.options[sel.selectedIndex].text}`, price});
+}
+
+if(checked('backdrop')){
+subtotal += prices.backdrop;
+selected.push({label:'LED Backdrop', price:prices.backdrop});
+}
+
+let rate = 0;
+if(selected.length >= 4) rate = 0.15;
+else if(selected.length >= 3) rate = 0.10;
+
+const discount = subtotal * rate;
+const total = subtotal - discount;
+return {selected, subtotal, discount, total, rate};
+}
+
+function money(num){
+return '£' + Math.round(num).toLocaleString('en-GB');
+}
+
+function updateTotals(){
+const pkg = getPackage();
+document.getElementById('itemCount').innerText = pkg.selected.length;
+document.getElementById('subtotal').innerText = money(pkg.subtotal);
+document.getElementById('discount').innerText =
+pkg.discount > 0 ? `-${money(pkg.discount)} (${Math.round(pkg.rate*100)}%)` : '£0';
+document.getElementById('total').innerText = money(pkg.total);
+
+const list = document.getElementById('selectedList');
+list.innerHTML = '';
+
+if(pkg.selected.length === 0){
+list.innerHTML = '<li>No items selected yet.</li>';
+return;
+}
+
+pkg.selected.forEach(item=>{
+const li = document.createElement('li');
+li.textContent = `${item.label} — ${money(item.price)}`;
+list.appendChild(li);
+});
+}
+
+document.getElementById('packageForm').addEventListener('submit',function(e){
+e.preventDefault();
+const pkg = getPackage();
+
+const packageLines = pkg.selected.length
+? pkg.selected.map(item=>`${item.label} — ${money(item.price)}`).join('\n')
+: 'No package items selected';
+
+const body = `New Instapic Package Enquiry
+
+Name: ${document.getElementById('name').value}
+Email: ${document.getElementById('email').value}
+Phone: ${document.getElementById('phone').value}
+Event Date: ${document.getElementById('date').value}
+Venue / Location: ${document.getElementById('venue').value}
+
+Selected Package:
+${packageLines}
+
+Subtotal: ${money(pkg.subtotal)}
+Package Saving: ${pkg.discount > 0 ? '-' + money(pkg.discount) + ' (' + Math.round(pkg.rate*100) + '%)' : '£0'}
+Estimated Total: ${money(pkg.total)}
+
+Note: Travel costs may apply depending on location and venue access.
+
+Extra Details:
+${document.getElementById('notes').value}`;
+
+window.location.href = `mailto:info@instapicphotobooth.co.uk?subject=${encodeURIComponent('Instapic Package Enquiry')}&body=${encodeURIComponent(body)}`;
+});
+
+updateTotals();
+</script>
+</body>
+</html>
