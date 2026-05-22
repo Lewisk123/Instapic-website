@@ -111,7 +111,53 @@ font-size:14px;
 .review-grid{
 grid-template-columns:1fr;
 }
-}.packages{padding:105px 6vw;background:#0b0a09;color:white}.package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.package{background:linear-gradient(180deg,#1a1715,#100e0d);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:34px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between}.package h3{font-family:Georgia,serif;font-size:34px;letter-spacing:-.04em;margin-bottom:15px}.package ul{padding-left:18px;line-height:2;color:rgba(255,255,255,.72);margin:0 0 26px}.package .btn{align-self:flex-start}.final-cta{min-height:620px;position:relative;display:grid;place-items:center;text-align:center;padding:90px 6vw;color:white;isolation:isolate;overflow:hidden}.final-cta .bg{position:absolute;inset:0;z-index:-2}.final-cta .bg:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.58)}.final-cta p{max-width:660px;color:rgba(255,255,255,.78);line-height:1.7;font-size:18px;margin:0 auto 28px}footer{padding:38px 6vw;background:#070605;color:rgba(255,255,255,.62);display:flex;justify-content:space-between;gap:30px;border-top:1px solid rgba(255,255,255,.1)}footer p{margin:0;max-width:650px;line-height:1.6}@media(max-width:950px){.nav nav{display:none}.hero{min-height:92vh;padding-top:105px}.hero-stats{position:relative;left:auto;right:auto;bottom:auto;margin-top:44px;grid-template-columns:1fr}.section-head{display:block}.service-grid,.story,.gallery-grid,.package-grid{grid-template-columns:1fr}.gallery-card.large{grid-row:auto;min-height:440px}.service-card{min-height:430px}.story-image{min-height:430px}.feature-list{grid-template-columns:1fr}footer{display:block}h1{font-size:clamp(46px,14vw,78px)}}
+}.packages{padding:105px 6vw;background:#0b0a09;color:white}.package-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:38px}.package{background:linear-gradient(180deg,#1a1715,#100e0d);border:1px solid rgba(255,255,255,.12);border-radius:28px;padding:34px;min-height:360px;display:flex;flex-direction:column;justify-content:space-between}.package h3{font-family:Georgia,serif;font-size:34px;letter-spacing:-.04em;margin-bottom:15px}.package ul{padding-left:18px;line-height:2;color:rgba(255,255,255,.72);margin:0 0 26px}.package .btn{align-self:flex-start}
+  .stats{
+padding:110px 6%;
+background:#12100f;
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+}
+
+.stat-card{
+background:rgba(255,255,255,.04);
+border:1px solid rgba(255,255,255,.08);
+border-radius:28px;
+padding:42px 28px;
+text-align:center;
+backdrop-filter:blur(18px);
+transition:all .4s ease;
+}
+
+.stat-card:hover{
+transform:translateY(-6px);
+border-color:rgba(198,164,106,.45);
+}
+
+.stat-card h3{
+font-size:52px;
+margin-bottom:12px;
+color:#c6a46a;
+}
+
+.stat-card p{
+color:#d7d1cb;
+font-size:15px;
+letter-spacing:.08em;
+text-transform:uppercase;
+}
+
+@media(max-width:900px){
+
+.stats-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}.final-cta{min-height:620px;position:relative;display:grid;place-items:center;text-align:center;padding:90px 6vw;color:white;isolation:isolate;overflow:hidden}.final-cta .bg{position:absolute;inset:0;z-index:-2}.final-cta .bg:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.58)}.final-cta p{max-width:660px;color:rgba(255,255,255,.78);line-height:1.7;font-size:18px;margin:0 auto 28px}footer{padding:38px 6vw;background:#070605;color:rgba(255,255,255,.62);display:flex;justify-content:space-between;gap:30px;border-top:1px solid rgba(255,255,255,.1)}footer p{margin:0;max-width:650px;line-height:1.6}@media(max-width:950px){.nav nav{display:none}.hero{min-height:92vh;padding-top:105px}.hero-stats{position:relative;left:auto;right:auto;bottom:auto;margin-top:44px;grid-template-columns:1fr}.section-head{display:block}.service-grid,.story,.gallery-grid,.package-grid{grid-template-columns:1fr}.gallery-card.large{grid-row:auto;min-height:440px}.service-card{min-height:430px}.story-image{min-height:430px}.feature-list{grid-template-columns:1fr}footer{display:block}h1{font-size:clamp(46px,14vw,78px)}}
 </style>
 </head>
 <body>
@@ -229,7 +275,31 @@ completely transformed the venue.”
 
 </div>
 </section>  <section id="packages" class="packages"><p class="kicker">Package ideas</p><h2>Build the perfect setup around your event.</h2><div class="package-grid"><article class="package"><div><h3>Essential Styling</h3><ul><li>Light-up letters or numbers</li><li>Flower wall or floral feature</li><li>Simple event styling impact</li></ul></div><a href="/contact.html" class="btn secondary">Enquire</a></article><article class="package"><div><h3>Luxury Wedding</h3><ul><li>White LED dance floor</li><li>MR & MRS / surname letters</li><li>Floral arch or flower wall</li><li>Optional magic mirror</li></ul></div><a href="/contact.html" class="btn primary">Most Popular</a></article><article class="package"><div><h3>Full Event Experience</h3><ul><li>Dance floor</li><li>Photo booth or magic mirror</li><li>Light-up letters/numbers</li><li>Floral styling features</li></ul></div><a href="/contact.html" class="btn secondary">Enquire</a></article></div></section>
-<section id="contact" class="final-cta"><div class="bg"><img src="dancefloor-drummond.jpeg" alt="Luxury wedding dance floor with light up letters" /></div><div><p class="kicker">Check your date</p><h2>Let’s create something unforgettable.</h2><p>Tell us your date, venue and the services you’re interested in. We’ll come back with availability and the best package options for your event.</p><a class="btn primary" href="/contact.html">Get A Quote</a></div></section>
+<section class="stats">
+  <div class="stats-grid">
+
+    <div class="stat-card">
+      <h3>500+</h3>
+      <p>Events Delivered</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>24k+</h3>
+      <p>Facebook Followers</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>200+</h3>
+      <p>5 Star Reviews</p>
+    </div>
+
+    <div class="stat-card">
+      <h3>Scotland</h3>
+      <p>Coverage Nationwide</p>
+    </div>
+
+  </div>
+</section><section id="contact" class="final-cta"><div class="bg"><img src="dancefloor-drummond.jpeg" alt="Luxury wedding dance floor with light up letters" /></div><div><p class="kicker">Check your date</p><h2>Let’s create something unforgettable.</h2><p>Tell us your date, venue and the services you’re interested in. We’ll come back with availability and the best package options for your event.</p><a class="btn primary" href="/contact.html">Get A Quote</a></div></section>
 <footer><div class="brand">INSTAPIC <span>EVENTS</span></div><p>Instapic Photo Booth & Events — luxury dance floors, flower walls, floral arches, giant light-up letters, photo booths and event styling across Scotland.</p></footer>
 <script>const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}})},{threshold:.16});reveals.forEach((el)=>observer.observe(el));</script>
 <script>
