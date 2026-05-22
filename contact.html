@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Check Availability | Instapic Events</title>
+<meta name="description" content="Check availability for Instapic Events. Enquire about LED dance floors, flower walls, floral arches, light-up letters, magic mirrors and photo booths across Scotland." />
+
+<style>
+*{box-sizing:border-box}
+:root{
+  --ink:#0b0a09;
+  --dark:#12100f;
+  --panel:#1a1715;
+  --cream:#f7eee4;
+  --champagne:#c6a46a;
+  --muted:#8f8277;
+  --white:#fffaf5;
+}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+img{width:100%;height:100%;object-fit:cover;display:block}
+
+.nav{
+  position:fixed;top:0;width:100%;z-index:50;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:18px 6vw;background:rgba(12,10,9,.76);
+  backdrop-filter:blur(18px);color:white;border-bottom:1px solid rgba(255,255,255,.08)
+}
+.brand{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:15px}
+.brand span{color:var(--champagne)}
+.nav nav{display:flex;gap:26px;align-items:center;font-size:12px;text-transform:uppercase;letter-spacing:.14em}
+.nav .pill{border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:11px 16px}
+
+.hero{
+  min-height:66vh;
+  position:relative;
+  padding:140px 6vw 80px;
+  color:white;
+  overflow:hidden;
+  isolation:isolate;
+  display:grid;
+  align-items:end;
+}
+.hero-bg{position:absolute;inset:0;z-index:-2}
+.hero-bg:after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,rgba(5,4,3,.86),rgba(5,4,3,.52),rgba(5,4,3,.18)),
+    linear-gradient(180deg,rgba(0,0,0,.12),rgba(0,0,0,.72));
+}
+.kicker{text-transform:uppercase;letter-spacing:.28em;color:var(--champagne);font-weight:900;font-size:12px}
+h1,h2,h3,p{margin-top:0}
+h1{font-family:Georgia,serif;font-size:clamp(48px,8vw,98px);line-height:.9;letter-spacing:-.065em;margin:18px 0 24px}
+.hero p{font-size:19px;line-height:1.7;color:rgba(255,255,255,.80);max-width:760px}
+
+.intro-strip{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:#ded1c4;
+}
+.intro-card{
+  background:#fffaf5;
+  padding:34px 5vw;
+}
+.intro-card strong{
+  display:block;
+  color:var(--champagne);
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:12px;
+  margin-bottom:10px;
+}
+.intro-card p{color:var(--muted);line-height:1.65;margin:0}
+
+.form-wrap{padding:80px 6vw 105px}
+.form-layout{
+  max-width:1220px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:.86fr 1.14fr;
+  gap:28px;
+  align-items:start;
+}
+.visual-column{
+  position:sticky;
+  top:95px;
+  display:grid;
+  gap:18px;
+}
+.visual-main{
+  min-height:520px;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 24px 70px rgba(0,0,0,.18);
+}
+.visual-main:after,
+.visual-small:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(0,0,0,.62));
+}
+.visual-caption{
+  position:absolute;
+  left:24px;
+  right:24px;
+  bottom:22px;
+  z-index:2;
+  color:white;
+}
+.visual-caption span{
+  color:var(--champagne);
+  font-size:12px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  font-weight:900;
+}
+.visual-caption h3{
+  font-family:Georgia,serif;
+  font-size:34px;
+  letter-spacing:-.04em;
+  margin:8px 0 0;
+}
+.visual-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+.visual-small{
+  min-height:220px;
+  border-radius:26px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 18px 42px rgba(0,0,0,.12);
+}
+.visual-small .visual-caption h3{font-size:22px}
+
+.form-shell{
+  background:white;
+  border-radius:34px;
+  overflow:hidden;
+  box-shadow:0 28px 80px rgba(0,0,0,.13);
+}
+.form-head{
+  background:#12100f;
+  color:white;
+  padding:42px;
+}
+.form-head h2{
+  font-family:Georgia,serif;
+  font-size:clamp(34px,5vw,62px);
+  line-height:.95;
+  letter-spacing:-.05em;
+  margin-bottom:12px;
+}
+.form-head p{color:rgba(255,255,255,.72);line-height:1.7;margin:0}
+
+form{padding:42px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{margin-bottom:20px}
+label{display:block;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:9px;color:#251f1b}
+input,select,textarea{
+  width:100%;
+  padding:15px 16px;
+  border:1px solid #ddd1c6;
+  border-radius:14px;
+  font-size:16px;
+  background:#fffaf5;
+  color:#16110f;
+}
+textarea{min-height:150px;resize:vertical}
+.full{grid-column:1/-1}
+
+.services-title{
+  margin:30px 0 18px;
+  padding-top:30px;
+  border-top:1px solid #eadfd4;
+}
+.services-title h3{
+  font-family:Georgia,serif;
+  font-size:34px;
+  letter-spacing:-.04em;
+  margin-bottom:8px;
+}
+.services-title p{color:var(--muted);line-height:1.7;margin:0}
+
+.service-option{
+  border:1px solid #eadfd4;
+  border-radius:22px;
+  padding:20px;
+  margin-bottom:14px;
+  background:#fffaf5;
+}
+.check-row{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  font-weight:900;
+  font-size:17px;
+}
+.check-row input{
+  width:20px;
+  height:20px;
+  accent-color:var(--champagne);
+}
+.hidden-detail{
+  display:none;
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px solid #eadfd4;
+}
+.hidden-detail.show{display:block}
+.examples{
+  font-size:13px;
+  color:var(--muted);
+  margin:6px 0 10px;
+  line-height:1.5;
+}
+.other-duration{
+  display:none;
+  margin-top:14px;
+}
+.other-duration.show{
+  display:block;
+}
+.minimum-note{
+  font-size:13px;
+  color:var(--muted);
+  margin:7px 0 12px;
+  line-height:1.5;
+}
+.submit-row{
+  margin-top:32px;
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+button{
+  border:0;
+  cursor:pointer;
+  background:var(--champagne);
+  color:#111;
+  padding:17px 26px;
+  border-radius:999px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.13em;
+  font-size:12px;
+}
+.note{
+  color:var(--muted);
+  line-height:1.6;
+  font-size:14px;
+  max-width:560px;
+}
+
+.mini-gallery{
+  padding:0 6vw 95px;
+}
+.mini-gallery-inner{
+  max-width:1220px;
+  margin:0 auto;
+}
+.mini-gallery h2{
+  font-family:Georgia,serif;
+  font-size:clamp(34px,5vw,62px);
+  line-height:.95;
+  letter-spacing:-.05em;
+  margin-bottom:28px;
+}
+.gallery-row{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.gallery-item{
+  min-height:310px;
+  border-radius:28px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 18px 44px rgba(0,0,0,.14);
+}
+.gallery-item:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.62));
+}
+.gallery-item span{
+  position:absolute;
+  left:22px;
+  bottom:20px;
+  z-index:2;
+  color:white;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  font-size:12px;
+}
+
+footer{
+  padding:38px 6vw;
+  background:#070605;
+  color:rgba(255,255,255,.62);
+  display:flex;
+  justify-content:space-between;
+  gap:30px;
+}
+footer p{margin:0;max-width:650px;line-height:1.6}
+
+@media(max-width:950px){
+  .nav nav{display:none}
+  .intro-strip,.form-layout,.gallery-row{grid-template-columns:1fr}
+  .visual-column{position:static}
+  .visual-main{min-height:430px}
+  .visual-row{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  form,.form-head{padding:28px}
+  .hero{padding-top:115px;min-height:58vh}
+  footer{display:block}
+}
+</style>
+</head>
+
+<body>
+<header class="nav">
+  <a class="brand" href="index.html">INSTAPIC <span>EVENTS</span></a>
+  <nav>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#packages">Packages</a>
+    <a class="pill" href="contact.html">Check Availability</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-bg">
+    <img src="ceremony.jpeg" alt="Luxury wedding ceremony setup with floral arch and light up letters">
+  </div>
+  <div>
+    <p class="kicker">Check availability</p>
+    <h1>Tell us about your event.</h1>
+    <p>Fill in the details below and we’ll come back with availability, package options and a quote tailored to your venue.</p>
+  </div>
+</section>
+
+<section class="intro-strip">
+  <div class="intro-card"><strong>Step 01</strong><p>Tell us your date, venue and event type.</p></div>
+  <div class="intro-card"><strong>Step 02</strong><p>Select the services you’re interested in.</p></div>
+  <div class="intro-card"><strong>Step 03</strong><p>We’ll reply with availability and the best package options.</p></div>
+</section>
+
+<section class="form-wrap">
+  <div class="form-layout">
+    <aside class="visual-column">
+      <div class="visual-main">
+        <img src="flower-wall-pink.jpeg" alt="Pink flower wall with light up number">
+        <div class="visual-caption">
+          <span>Luxury styling</span>
+          <h3>Designed around your venue.</h3>
+        </div>
+      </div>
+
+      <div class="visual-row">
+        <div class="visual-small">
+          <img src="magic-mirror.jpeg" alt="Magic mirror setup at event">
+          <div class="visual-caption"><span>Entertainment</span><h3>Guest moments</h3></div>
+        </div>
+
+        <div class="visual-small">
+          <img src="photo-booth-luxury.jpeg" alt="Photo booth setup in luxury venue">
+          <div class="visual-caption"><span>Experience</span><h3>Photo memories</h3></div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="form-shell">
+      <div class="form-head">
+        <p class="kicker">Event enquiry</p>
+        <h2>Build your ideal setup.</h2>
+        <p>Select the services you’re interested in and add the details we need to quote properly first time.</p>
+      </div>
+
+      <form id="enquiryForm">
+        <div class="grid">
+          <div class="field"><label for="name">Full Name</label><input id="name" type="text" required></div>
+          <div class="field"><label for="email">Email Address</label><input id="email" type="email" required></div>
+          <div class="field"><label for="phone">Phone Number</label><input id="phone" type="tel"></div>
+          <div class="field"><label for="date">Event Date</label><input id="date" type="date" required></div>
+          <div class="field"><label for="venue">Venue Name / Location</label><input id="venue" type="text" placeholder="Venue name or town/city"></div>
+          <div class="field"><label for="venueStatus">Venue Status</label><select id="venueStatus"><option>Venue Booked</option><option>Looking For Venue</option><option>Not Sure Yet</option></select></div>
+          <div class="field full"><label for="eventType">Event Type</label><select id="eventType"><option>Wedding</option><option>Birthday</option><option>Engagement</option><option>Baby Shower</option><option>Prom</option><option>Corporate Event</option><option>Other</option></select></div>
+        </div>
+
+        <div class="services-title">
+          <h3>Services Required</h3>
+          <p>Tick anything you’re interested in. Extra options will appear where needed.</p>
+        </div>
+
+        <div class="service-option">
+          <label class="check-row"><input type="checkbox" id="danceFloor"> LED Dance Floor</label>
+          <div class="hidden-detail" id="danceFloorDetails">
+            <label for="danceFloorSize">Preferred Size</label>
+            <select id="danceFloorSize"><option>12x12 ft</option><option>14x14 ft</option><option>16x16 ft</option><option>20x20 ft</option><option>Not Sure Yet</option></select>
+          </div>
+        </div>
+
+        <div class="service-option">
+          <label class="check-row"><input type="checkbox" id="letters"> Light-Up Letters / Numbers</label>
+          <div class="hidden-detail" id="lettersDetails">
+            <label for="lettersText">Preferred Wording</label>
+            <p class="examples">Examples: MR & MRS, THE SMITHS, LOVE, PROM, GRAD, 21</p>
+            <input id="lettersText" type="text" placeholder="Type your wording here">
+          </div>
+        </div>
+
+        <div class="service-option">
+          <label class="check-row"><input type="checkbox" id="flowerWall"> Flower Wall</label>
+          <div class="hidden-detail" id="flowerWallDetails">
+            <label for="flowerWallStyle">Preferred Style</label>
+            <select id="flowerWallStyle"><option>White</option><option>Pink</option><option>Not Sure Yet</option></select>
+          </div>
+        </div>
+
+        <div class="service-option">
+          <label class="check-row"><input type="checkbox" id="floralArch"> Floral Arch</label>
+          <div class="hidden-detail" id="floralArchDetails">
+            <label for="floralArchStyle">Preferred Style</label>
+            <select id="floralArchStyle"><option>White Floral Arch</option><option>Pink Floral Arch</option><option>Not Sure Yet</option></select>
+          </div>
+        </div>
+
+        <div class="service-option">
+          <label class="check-row"><input type="checkbox" id="magicMirror"> Magic Mirror</label>
+          <div class="hidden-detail" id="magicMirrorDetails">
+            <label for="magicMirrorDuration">Hire Duration</label>
+            <p class="minimum-note">Minimum hire: 2 hours.</p>
+            <select id="magicMirrorDuration">
+              <option>2 Hours</option>
+              <option>3 Hours</option>
+              <option>4 Hours</option>
+              <option>5 Hours</option>
+              <option>Other</option>
+            </select>
+            <div class="other-duration" id="magicMirrorOtherWrap">
+              <label for="magicMirrorOther">Other Duration</label>
+              <input id="magicMirrorOther" type="text" placeholder="Example: 6 hours, full evening, not sure yet">
+            </div>
+          </div>
+        </div>
+
+        <div class="service-option">
+          <label class="check-row"><input type="checkbox" id="photoBooth"> Photo Booth</label>
+          <div class="hidden-detail" id="photoBoothDetails">
+            <label for="photoBoothDuration">Hire Duration</label>
+            <p class="minimum-note">Minimum hire: 2 hours.</p>
+            <select id="photoBoothDuration">
+              <option>2 Hours</option>
+              <option>3 Hours</option>
+              <option>4 Hours</option>
+              <option>5 Hours</option>
+              <option>Other</option>
+            </select>
+            <div class="other-duration" id="photoBoothOtherWrap">
+              <label for="photoBoothOther">Other Duration</label>
+              <input id="photoBoothOther" type="text" placeholder="Example: 6 hours, full evening, not sure yet">
+            </div>
+          </div>
+        </div>
+
+        <div class="field"><label for="notes">Additional Information</label><textarea id="notes" placeholder="Tell us anything else about your event, timings, access, styling ideas or special requests."></textarea></div>
+
+        <div class="submit-row"><button type="submit">Send Enquiry</button><p class="note">This opens their email app with the enquiry details filled in, ready to send to Instapic Events.</p></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="mini-gallery">
+  <div class="mini-gallery-inner">
+    <p class="kicker">A few final touches</p>
+    <h2>Choose the pieces that complete the room.</h2>
+    <div class="gallery-row">
+      <div class="gallery-item"><img src="flower-arch-donohos.jpeg" alt="Floral arch with personalised neon sign"><span>Floral Arches</span></div>
+      <div class="gallery-item"><img src="letters-douglas.jpeg" alt="Large light up surname letters"><span>Light-Up Letters</span></div>
+      <div class="gallery-item"><img src="prom.jpeg" alt="Light up prom letters and event styling"><span>Celebrations</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="brand">INSTAPIC <span>EVENTS</span></div>
+  <p>Instapic Photo Booth & Events — luxury dance floors, flower walls, floral arches, giant light-up letters, photo booths and event styling across Scotland.</p>
+</footer>
+
+<script>
+const toggles=[['danceFloor','danceFloorDetails'],['letters','lettersDetails'],['flowerWall','flowerWallDetails'],['floralArch','floralArchDetails'],['magicMirror','magicMirrorDetails'],['photoBooth','photoBoothDetails']];
+
+toggles.forEach(([checkboxId,detailId])=>{
+  const checkbox=document.getElementById(checkboxId);
+  const detail=document.getElementById(detailId);
+  checkbox.addEventListener('change',()=>{
+    detail.classList.toggle('show',checkbox.checked);
+  });
+});
+
+function setupOtherDuration(selectId, wrapId){
+  const select=document.getElementById(selectId);
+  const wrap=document.getElementById(wrapId);
+  select.addEventListener('change',()=>{
+    wrap.classList.toggle('show', select.value === 'Other');
+  });
+}
+
+setupOtherDuration('magicMirrorDuration','magicMirrorOtherWrap');
+setupOtherDuration('photoBoothDuration','photoBoothOtherWrap');
+
+function getDuration(selectId, otherId){
+  const selected=document.getElementById(selectId).value;
+  if(selected === 'Other'){
+    return document.getElementById(otherId).value || 'Other - not specified';
+  }
+  return selected;
+}
+
+document.getElementById('enquiryForm').addEventListener('submit',function(e){
+  e.preventDefault();
+
+  const selected=[];
+  if(document.getElementById('danceFloor').checked) selected.push('LED Dance Floor - Size: '+document.getElementById('danceFloorSize').value);
+  if(document.getElementById('letters').checked) selected.push('Light-Up Letters / Numbers - Wording: '+(document.getElementById('lettersText').value||'Not provided'));
+  if(document.getElementById('flowerWall').checked) selected.push('Flower Wall - Style: '+document.getElementById('flowerWallStyle').value);
+  if(document.getElementById('floralArch').checked) selected.push('Floral Arch - Style: '+document.getElementById('floralArchStyle').value);
+  if(document.getElementById('magicMirror').checked) selected.push('Magic Mirror - Duration: '+getDuration('magicMirrorDuration','magicMirrorOther'));
+  if(document.getElementById('photoBooth').checked) selected.push('Photo Booth - Duration: '+getDuration('photoBoothDuration','photoBoothOther'));
+
+  const body=`New Instapic Events Enquiry
+
+Name: ${document.getElementById('name').value}
+Email: ${document.getElementById('email').value}
+Phone: ${document.getElementById('phone').value}
+Event Date: ${document.getElementById('date').value}
+Venue / Location: ${document.getElementById('venue').value}
+Venue Status: ${document.getElementById('venueStatus').value}
+Event Type: ${document.getElementById('eventType').value}
+
+Services Required:
+${selected.length?selected.join('\n'):'No services selected'}
+
+Additional Information:
+${document.getElementById('notes').value}`;
+
+  window.location.href=`mailto:info@instapicphotobooth.co.uk?subject=${encodeURIComponent('Instapic Events Enquiry')}&body=${encodeURIComponent(body)}`;
+});
+</script>
+</body>
+</html>
