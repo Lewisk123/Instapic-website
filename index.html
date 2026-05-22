@@ -157,8 +157,45 @@ text-transform:uppercase;
 grid-template-columns:1fr 1fr;
 }
 
-}.final-cta{min-height:620px;position:relative;display:grid;place-items:center;text-align:center;padding:90px 6vw;color:white;isolation:isolate;overflow:hidden}.final-cta .bg{position:absolute;inset:0;z-index:-2}.final-cta .bg:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.58)}.final-cta p{max-width:660px;color:rgba(255,255,255,.78);line-height:1.7;font-size:18px;margin:0 auto 28px}footer{padding:38px 6vw;background:#070605;color:rgba(255,255,255,.62);display:flex;justify-content:space-between;gap:30px;border-top:1px solid rgba(255,255,255,.1)}footer p{margin:0;max-width:650px;line-height:1.6}@media(max-width:950px){.nav nav{display:none}.hero{min-height:92vh;padding-top:105px}.hero-stats{position:relative;left:auto;right:auto;bottom:auto;margin-top:44px;grid-template-columns:1fr}.section-head{display:block}.service-grid,.story,.gallery-grid,.package-grid{grid-template-columns:1fr}.gallery-card.large{grid-row:auto;min-height:440px}.service-card{min-height:430px}.story-image{min-height:430px}.feature-list{grid-template-columns:1fr}footer{display:block}h1{font-size:clamp(46px,14vw,78px)}}
-</style>
+}.final-cta{min-height:620px;position:relative;display:grid;place-items:center;text-align:center;padding:90px 6vw;color:white;isolation:isolate;overflow:hidden}.final-cta .bg{position:absolute;inset:0;z-index:-2}.final-cta .bg:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.58)}.final-cta p{max-width:660px;color:rgba(255,255,255,.78);line-height:1.7;font-size:18px;margin:0 auto 28px}footer{
+padding:38px 6vw;
+background:#070605;
+color:rgba(255,255,255,.62);
+display:flex;
+justify-content:space-between;
+gap:30px;
+border-top:1px solid rgba(255,255,255,.1);
+}
+
+footer p{
+margin:0;
+max-width:650px;
+line-height:1.6;
+}
+
+.footer-links{
+display:flex;
+gap:18px;
+align-items:center;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.footer-links a{
+color:rgba(255,255,255,.72);
+font-size:13px;
+letter-spacing:.12em;
+text-transform:uppercase;
+transition:all .3s ease;
+}
+
+.footer-links a:hover{
+color:#c6a46a;
+transform:translateY(-2px);
+}
+@media(max-width:950px){
+footer{display:block}
+h1</style>
 </head>
 <body>
 <header class="nav"><a class="brand" href="#">INSTAPIC <span>EVENTS</span></a><nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="#packages">Packages</a><a class="pill" href="/contact.html">Get a Quote</a></nav></header>
@@ -300,8 +337,37 @@ completely transformed the venue.”
 
   </div>
 </section><section id="contact" class="final-cta"><div class="bg"><img src="dancefloor-drummond.jpeg" alt="Luxury wedding dance floor with light up letters" /></div><div><p class="kicker">Check your date</p><h2>Let’s create something unforgettable.</h2><p>Tell us your date, venue and the services you’re interested in. We’ll come back with availability and the best package options for your event.</p><a class="btn primary" href="/contact.html">Get A Quote</a></div></section>
-<footer><div class="brand">INSTAPIC <span>EVENTS</span></div><p>Instapic Photo Booth & Events — luxury dance floors, flower walls, floral arches, giant light-up letters, photo booths and event styling across Scotland.</p></footer>
-<script>const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}})},{threshold:.16});reveals.forEach((el)=>observer.observe(el));</script>
+<footer>
+
+<div>
+  <div class="brand">
+    INSTAPIC <span>EVENTS</span>
+  </div>
+
+  <p>
+    Luxury dance floors, flower walls, floral arches,
+    giant light-up letters, magic mirrors and photo booths
+    across Scotland.
+  </p>
+</div>
+
+<div class="footer-links">
+
+  <a href="https://facebook.com" target="_blank">
+    Facebook
+  </a>
+
+  <a href="https://instagram.com" target="_blank">
+    Instagram
+  </a>
+
+  <a href="/contact.html">
+    Check Availability
+  </a>
+
+</div>
+
+</footer><script>const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver((entries)=>{entries.forEach((entry)=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target);}})},{threshold:.16});reveals.forEach((el)=>observer.observe(el));</script>
 <script>
 window.addEventListener('scroll', () => {
   const cards = document.querySelectorAll('.service-card, .gallery-card');
@@ -361,7 +427,7 @@ const statsObserver = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.stat-card').forEach(card=>{
   statsObserver.observe(card);
 });
-</script>a href="/contact.html" style="
+</script><ahref="/contact.html" style="
 position:fixed;
 right:20px;
 bottom:20px;
