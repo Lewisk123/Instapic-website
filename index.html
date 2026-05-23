@@ -256,10 +256,228 @@ transform:translateY(-2px);
 .trust-strip{grid-template-columns:1fr}
 footer{display:block}
 h1{font-size:clamp(46px,14vw,78px)}
+.quote-builder{
+padding:120px 6vw;
+background:#f7eee4;
+}
+
+.quote-intro{
+max-width:850px;
+margin-bottom:50px;
+}
+
+.quote-kicker{
+color:#c6a46a;
+font-size:12px;
+font-weight:900;
+letter-spacing:.22em;
+text-transform:uppercase;
+margin-bottom:14px;
+}
+
+.quote-intro h2{
+font-family:Georgia,serif;
+font-size:clamp(42px,6vw,72px);
+line-height:.95;
+letter-spacing:-.05em;
+margin-bottom:20px;
+}
+
+.quote-intro p{
+color:#666;
+line-height:1.8;
+font-size:17px;
+}
+
+.quote-grid{
+display:grid;
+grid-template-columns:1fr 420px;
+gap:28px;
+align-items:start;
+}
+
+.service-options{
+display:grid;
+gap:16px;
+}
+
+.service-option{
+background:white;
+padding:22px;
+border-radius:22px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 15px 40px rgba(0,0,0,.06);
+border:1px solid rgba(0,0,0,.05);
+transition:.35s ease;
+}
+
+.service-option:hover{
+transform:translateY(-4px);
+border-color:rgba(198,164,106,.35);
+}
+
+.service-option label{
+display:flex;
+align-items:center;
+gap:14px;
+font-weight:700;
+cursor:pointer;
+}
+
+.service-option span{
+color:#c6a46a;
+font-weight:900;
+}
+
+.price-summary{
+position:sticky;
+top:120px;
+background:#12100f;
+color:white;
+padding:38px;
+border-radius:30px;
+box-shadow:0 25px 60px rgba(0,0,0,.18);
+}
+
+.price-summary p{
+letter-spacing:.18em;
+font-size:12px;
+text-transform:uppercase;
+color:rgba(255,255,255,.6);
+margin-bottom:12px;
+}
+
+.price-summary h3{
+font-size:68px;
+margin:0 0 16px;
+color:#c6a46a;
+}
+
+.price-summary small{
+display:block;
+line-height:1.7;
+color:rgba(255,255,255,.65);
+}
+
+@media(max-width:950px){
+
+.quote-grid{
+grid-template-columns:1fr;
+}
+
+.price-summary{
+position:relative;
+top:auto;
+}
+  
+}
 </style>
-</head>
+}</head>
 <body>
-<header class="nav"><a class="brand" href="#">INSTAPIC <span>EVENTS</span></a><nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="packages.html">Packages</a><a class="pill" href="/contact.html">Get a Quote</a></nav></header>
+
+  <section class="quote-builder">
+
+<div class="quote-intro">
+
+<p class="quote-kicker">
+Instant estimated pricing
+</p>
+
+<h2>
+Build Your Instapic Package
+</h2>
+
+<p>
+Planning a wedding, party or corporate event?
+Select your preferred services below to receive an estimated package price instantly before submitting your enquiry.
+</p>
+
+<p>
+We carefully manage availability to ensure every confirmed booking receives the full Instapic experience.
+Weekend enquiries may take slightly longer during busy event periods, but we aim to respond within 24 hours.
+</p>
+
+</div>
+
+<div class="quote-grid">
+
+<div class="service-options">
+
+<div class="service-option">
+<label>
+<input type="checkbox" class="service" value="295">
+Photo Booth Hire
+</label>
+<span>+£295</span>
+</div>
+
+<div class="service-option">
+<label>
+<input type="checkbox" class="service" value="395">
+Magic Mirror Hire
+</label>
+<span>+£395</span>
+</div>
+
+<div class="service-option">
+<label>
+<input type="checkbox" class="service" value="350">
+LED Dance Floor
+</label>
+<span>from £350</span>
+</div>
+
+<div class="service-option">
+<label>
+<input type="checkbox" class="service" value="120">
+Light Up Letters
+</label>
+<span>from £120</span>
+</div>
+
+<div class="service-option">
+<label>
+<input type="checkbox" class="service" value="180">
+Flower Wall
+</label>
+<span>+£180</span>
+</div>
+
+<div class="service-option">
+<label>
+<input type="checkbox" class="service" value="190">
+Flower Arch
+</label>
+<span>+£190</span>
+</div>
+
+</div>
+
+<div class="price-summary">
+
+<p>
+Estimated package price
+</p>
+
+<h3 id="totalPrice">
+£0
+</h3>
+
+<small>
+Multi-service discounts automatically apply when booking multiple services together.
+
+<br><br>
+
+Travel costs may apply depending on venue location.
+</small>
+
+</div>
+
+</div>
+
+</section><header class="nav"><a class="brand" href="#">INSTAPIC <span>EVENTS</span></a><nav><a href="#services">Services</a><a href="#gallery">Gallery</a><a href="packages.html">Packages</a><a class="pill" href="/contact.html">Get a Quote</a></nav></header>
 <section class="hero"><div class="hero-bg"><img src="hero-seoul-awards.jpeg" alt="Large illuminated letters at a luxury awards event" /></div><div class="hero-content"><p class="kicker">Luxury event styling across Scotland</p><h1>Make the room unforgettable.</h1><p class="lead">Premium dance floors, flower walls, floral arches, giant light-up letters, photo booths and event styling for weddings, corporate events and celebrations across Scotland.</p><div class="buttons"><a class="btn primary" href="packages.html">View Packages</a><a class="btn secondary" href="/contact.html">Get A Quote</a></div></div><div class="hero-stats"><div><strong>10+ Years</strong><span>creating unforgettable events</span></div><div><strong>200+ Reviews</strong><span>trusted by couples and venues</span></div><div><strong>Scotland Wide</strong><span>weddings, parties and corporate events</span></div></div></section>
 <section class="intro"><p class="kicker">Instapic Photo Booth & Events</p><h2>Event hire with a luxury styling edge.</h2><p>Instapic Events brings together entertainment, styling and statement pieces to transform your venue. Whether you want a standout wedding reception, a stylish birthday setup or a branded corporate event, we create the details guests remember.</p></section>
 <section class="how-it-works reveal">
@@ -497,7 +715,45 @@ const statsObserver = new IntersectionObserver((entries)=>{
 document.querySelectorAll('.stat-card').forEach(card=>{
   statsObserver.observe(card);
 });
-</script><ahref="/contact.html" style="
+</script>
+  
+<script>
+
+const services = document.querySelectorAll('.service');
+const totalPrice = document.getElementById('totalPrice');
+
+services.forEach(service => {
+service.addEventListener('change', calculatePrice);
+});
+
+function calculatePrice(){
+
+let total = 0;
+let selected = 0;
+
+services.forEach(service => {
+
+if(service.checked){
+total += Number(service.value);
+selected++;
+}
+
+});
+
+if(selected >= 3){
+total = total * 0.9;
+}
+
+if(selected >= 4){
+total = total * 0.85;
+}
+
+totalPrice.innerText = '£' + Math.round(total);
+
+}
+
+</script>
+  <a href="/contact.html" style="
 position:fixed;
 right:20px;
 bottom:20px;
