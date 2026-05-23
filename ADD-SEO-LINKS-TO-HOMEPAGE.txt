@@ -1,0 +1,15 @@
+Optional homepage links block:
+
+<section class="seo-links">
+  <h2>Popular Event Hire Pages</h2>
+  <ul>
+<li><a href="/photo-booth-hire-edinburgh.html">Photo Booth Hire Edinburgh</a></li>
+<li><a href="/led-dance-floor-hire-edinburgh.html">LED Dance Floor Hire Edinburgh</a></li>
+<li><a href="/barony-castle-wedding-styling.html">Barony Castle Wedding Styling</a></li>
+<li><a href="/stair-arms-hotel-wedding-styling.html">Stair Arms Hotel Wedding Styling</a></li>
+<li><a href="/cornhill-castle-wedding-styling.html">Cornhill Castle Wedding Styling</a></li>
+<li><a href="/dalmahoy-wedding-dance-floor-hire.html">Dalmahoy Wedding Dance Floor Hire</a></li>
+<li><a href="/edinburgh-hilton-skybar-wedding-styling.html">Edinburgh Hilton Skybar Wedding Styling</a></li>
+<li><a href="/carlowrie-castle-wedding-styling.html">Carlowrie Castle Wedding Styling</a></li>
+  </ul>
+</section>
