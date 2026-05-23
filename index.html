@@ -1,174 +1,277 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Instapic Events Scotland</title>
-<link rel="icon" type="image/png" href="/favicon.png">
+
 <style>
-*{box-sizing:border-box}
-html,body{margin:0;max-width:100%;overflow-x:hidden;font-family:Arial,sans-serif;background:#f7eee4;color:#111}
-img{width:100%;display:block;border-radius:26px;max-width:100%}
-a{text-decoration:none;color:inherit}
-.nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,10,.82);backdrop-filter:blur(20px);padding:18px 6vw;display:flex;justify-content:space-between;align-items:center;color:white}
-.brand{font-weight:900;letter-spacing:.18em;text-transform:uppercase}
-.brand span{color:#c6a46a}
-.nav nav{display:flex;gap:24px;font-size:12px;text-transform:uppercase}
-.hero{min-height:100vh;display:grid;align-items:end;padding:140px 6vw 90px;position:relative;color:white}
-.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.85),rgba(0,0,0,.35))}
-.hero-content{position:relative;max-width:760px}
-.hero-bg{position:absolute;inset:0;background:url('hero-premium-dancefloor.jpeg') center/cover}
-.kicker{color:#c6a46a;letter-spacing:.3em;text-transform:uppercase;font-size:12px;font-weight:900}
-h1{font-size:clamp(48px,8vw,96px);line-height:.92;margin:18px 0;font-family:Georgia,serif}
-.lead{font-size:20px;line-height:1.7;color:rgba(255,255,255,.84)}
-.buttons{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px}
-.btn{padding:18px 28px;border-radius:999px;font-size:12px;font-weight:900;letter-spacing:.14em;text-transform:uppercase}
-.primary{background:#c6a46a;color:#111}
-.secondary{border:1px solid rgba(255,255,255,.3)}
-.section{padding:100px 6vw}
-.center{text-align:center;max-width:1000px;margin:auto}
-h2{font-size:clamp(36px,5vw,70px);line-height:.95;font-family:Georgia,serif;margin:18px 0}
-.venues,.services,.reviews,.gallery,.packages{display:grid;gap:24px;margin-top:40px}
-.venues{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
-.venue{background:white;padding:20px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.06);font-weight:700}
-.services{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.service,.review,.package{background:white;padding:28px;border-radius:28px;box-shadow:0 15px 40px rgba(0,0,0,.08)}
-.gallery{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
-.gallery img{height:360px;object-fit:cover}
-.reviews{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.review{font-style:italic}
-.packages{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-.price{font-size:42px;color:#c6a46a;font-weight:900}
-.cta{background:#12100f;color:white;text-align:center;padding:110px 6vw}
-footer{background:#080706;color:rgba(255,255,255,.7);padding:60px 6vw;display:grid;gap:20px}
-@media(max-width:900px){.nav nav{display:none}.hero{min-height:78vh}}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+html,body{
+overflow-x:hidden;
+font-family:Arial,sans-serif;
+background:#f6efe6;
+color:#111;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+a{
+text-decoration:none;
+}
+
+.hero{
+position:relative;
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:140px 7vw 90px;
+overflow:hidden;
+color:white;
+}
+
+.hero-bg{
+position:absolute;
+inset:0;
+}
+
+.hero-bg img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(0,0,0,.90) 0%,
+rgba(0,0,0,.76) 35%,
+rgba(0,0,0,.45) 70%,
+rgba(0,0,0,.22) 100%
+);
+z-index:1;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:780px;
+}
+
+.kicker{
+color:#c6a46a;
+text-transform:uppercase;
+letter-spacing:.3em;
+font-size:12px;
+font-weight:900;
+margin-bottom:18px;
+}
+
+h1{
+font-size:clamp(58px,10vw,120px);
+line-height:.9;
+font-family:Georgia,serif;
+margin-bottom:24px;
+}
+
+.lead{
+font-size:21px;
+line-height:1.7;
+color:rgba(255,255,255,.9);
+margin-bottom:34px;
+}
+
+.buttons{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:18px 28px;
+border-radius:999px;
+font-size:12px;
+font-weight:900;
+letter-spacing:.14em;
+text-transform:uppercase;
+}
+
+.primary{
+background:#c6a46a;
+color:#111;
+}
+
+.secondary{
+border:1px solid rgba(255,255,255,.5);
+color:white;
+}
+
+section{
+padding:90px 7vw;
+}
+
+.center{
+text-align:center;
+max-width:1000px;
+margin:auto;
+}
+
+h2{
+font-size:clamp(38px,6vw,76px);
+line-height:.95;
+font-family:Georgia,serif;
+margin:14px 0 24px;
+}
+
+.gallery-section{
+background:#15110f;
+color:white;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-top:50px;
+}
+
+.gallery-grid img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:26px;
+transition:.35s ease;
+}
+
+.gallery-grid img:hover{
+transform:translateY(-4px);
+}
+
+footer{
+background:#0d0b0a;
+color:rgba(255,255,255,.7);
+padding:60px 7vw;
+text-align:center;
+line-height:1.9;
+}
+
+@media(max-width:900px){
+
+.gallery-grid{
+grid-template-columns:1fr 1fr;
+}
+
+}
+
+@media(max-width:650px){
+
+.hero{
+padding:120px 20px 70px;
+}
+
+.gallery-grid{
+grid-template-columns:1fr;
+}
+
+h1{
+font-size:58px;
+}
+
+.lead{
+font-size:18px;
+}
+
+.buttons .btn{
+width:100%;
+text-align:center;
+}
+
+section{
+padding:70px 20px;
+}
+
+}
 </style>
 </head>
 <body>
 
-<header class="nav">
-<div class="brand">INSTAPIC <span>EVENTS</span></div>
-<nav>
-<a href="/">Home</a>
-<a href="/gallery.html">Gallery</a>
-<a href="/packages.html">Packages</a>
-<a href="/contact.html">Contact</a>
-</nav>
-</header>
-
 <section class="hero">
-<div class="hero-bg"></div>
+
+<div class="hero-bg">
+<img src="dancefloor-drummond.jpeg" alt="Luxury wedding dance floor Scotland">
+</div>
+
 <div class="hero-content">
-<p class="kicker">Luxury Wedding Entertainment Across Scotland</p>
-<h1>Make the room unforgettable.</h1>
-<p class="lead">Photo Booths, LED Dance Floors, Light Up Letters & Wedding Packages for unforgettable weddings and events across Edinburgh, Glasgow and Central Scotland.</p>
+
+<p class="kicker">
+Luxury Wedding Entertainment Across Scotland
+</p>
+
+<h1>
+Make the room unforgettable.
+</h1>
+
+<p class="lead">
+Photo Booths, LED Dance Floors, Light Up Letters & Wedding Packages for unforgettable weddings and events across Edinburgh, Glasgow and Central Scotland.
+</p>
+
 <div class="buttons">
 <a class="btn primary" href="/contact.html">Get A Quote</a>
 <a class="btn secondary" href="/packages.html">View Packages</a>
 </div>
+
 </div>
+
 </section>
 
-<section class="section">
+<section class="gallery-section">
+
 <div class="center">
-<p class="kicker">Trusted venues</p>
-<h2>Trusted By Scotland’s Leading Wedding Venues</h2>
+
+<p class="kicker">
+Venue Showcase
+</p>
+
+<h2>
+Transforming Venues Across Scotland
+</h2>
+
 </div>
 
-<div class="venues">
-<div class="venue">Dalmahoy Hotel</div>
-<div class="venue">Carlowrie Castle</div>
-<div class="venue">Cornhill Castle</div>
-<div class="venue">Norton House Hotel</div>
-<div class="venue">Prestonfield House</div>
-<div class="venue">Dalhousie Castle</div>
-<div class="venue">Murrayfield Stadium</div>
-<div class="venue">Hibernian FC</div>
-<div class="venue">Rangers FC</div>
-<div class="venue">Hearts FC</div>
-</div>
-</section>
+<div class="gallery-grid">
 
-<section class="section">
-<div class="center">
-<p class="kicker">Luxury services</p>
-<h2>Premium Wedding Experiences</h2>
+<img src="edinburgh-hilton-skybar-dance-floor.jpeg">
+<img src="cornhill-castle-wedding-styling.jpeg">
+<img src="dalmahoy-wedding-dance-floor-hire.jpeg">
+<img src="barony-castle-wedding-styling.jpeg">
+<img src="dancefloor-drummond.jpeg">
+<img src="light-up-letters-edinburgh-event.jpeg">
+<img src="photo-booth-wedding-package-scotland.jpeg">
+<img src="carlowrie-castle-floral-arch.jpeg">
+
 </div>
 
-<div class="services">
-<div class="service"><h3>LED Dance Floors</h3><p>Create the perfect first dance moment with our luxury starlit LED dance floors available across Scotland.</p></div>
-<div class="service"><h3>Photo Booths</h3><p>Modern photo booth experiences with instant prints, digital sharing and unforgettable memories for your guests.</p></div>
-<div class="service"><h3>Light Up Letters</h3><p>Giant illuminated initials, LOVE letters and surnames to transform your venue and create the perfect backdrop.</p></div>
-<div class="service"><h3>Wedding Packages</h3><p>Combine multiple services into one seamless luxury entertainment package tailored to your wedding or event.</p></div>
-</div>
-</section>
-
-<section class="section">
-<div class="center">
-<p class="kicker">Real weddings</p>
-<h2>Real Weddings. Real Reviews.</h2>
-</div>
-
-<div class="reviews">
-<div class="review">★★★★★<br><br>“Added so much to our night.”</div>
-<div class="review">★★★★★<br><br>“Our guests absolutely loved it.”</div>
-<div class="review">★★★★★<br><br>“Professional, friendly and highly recommended.”</div>
-<div class="review">★★★★★<br><br>“The dance floor completely transformed the venue.”</div>
-</div>
-</section>
-
-<section class="section">
-<div class="center">
-<p class="kicker">Venue showcase</p>
-<h2>Transforming Venues Across Scotland</h2>
-</div>
-
-<div class="gallery">
-<img src="hero-premium-dancefloor.jpeg">
-<img src="surname-letters.jpeg">
-<img src="ceremony-aisle.jpeg">
-<img src="lightup-letters.jpeg">
-</div>
-</section>
-
-<section class="section">
-<div class="center">
-<p class="kicker">Areas covered</p>
-<h2>Areas We Cover</h2>
-<p>We provide wedding entertainment across Edinburgh, Glasgow, East Lothian, West Lothian, Fife, Dundee, The Borders, Loch Lomond, Cumbernauld and all of Central Scotland.</p>
-</div>
-</section>
-
-<section class="section">
-<div class="center">
-<p class="kicker">Packages</p>
-<h2>Wedding Packages</h2>
-</div>
-
-<div class="packages">
-<div class="package"><h3>Essential Package</h3><p>Photo Booth Hire</p><div class="price">From £295</div></div>
-<div class="package"><h3>Signature Package</h3><p>LED Dance Floor + Photo Booth</p><div class="price">From £595</div></div>
-<div class="package"><h3>Luxury Wedding Package</h3><p>Dance Floor + Booth + Light Up Letters</p><div class="price">From £895</div></div>
-</div>
-</section>
-
-<section class="cta">
-<p class="kicker">Check your date</p>
-<h2>Let’s Create An Unforgettable Wedding</h2>
-<p>Check availability today for weddings, birthdays and events across Scotland.</p>
-<div class="buttons" style="justify-content:center">
-<a class="btn primary" href="/contact.html">Get A Quote</a>
-<a class="btn secondary" href="tel:01312352633">Call Now</a>
-</div>
 </section>
 
 <footer>
-<div class="brand">INSTAPIC <span>EVENTS</span></div>
-<div>0131 235 2633</div>
-<div>info@instapicphotobooth.co.uk</div>
-<div>Instagram: @instapicphotoboothuk</div>
-<div>Serving Edinburgh, Glasgow & Central Scotland</div>
+
+INSTAPIC EVENTS<br>
+
+0131 235 2633<br>
+
+info@instapicphotobooth.co.uk
+
 </footer>
 
 </body>
