@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    { "source": "/about-3", "destination": "/", "permanent": true },
+    { "source": "/about-3-4", "destination": "/", "permanent": true },
+    { "source": "/about-3-3", "destination": "/", "permanent": true },
+    { "source": "/about-3-1", "destination": "/", "permanent": true },
+    { "source": "/gallery", "destination": "/#gallery", "permanent": true }
+  ]
+}
