@@ -1,0 +1,20 @@
+INSTAPIC VISUAL + GALLERY PACK v3
+
+IMPORTANT: Upload the CONTENTS of this folder to the ROOT of your GitHub repository.
+Do not upload the outer INSTAPIC folder itself.
+
+You should see index.html, gallery.html, the service HTML files, and an assets folder at the root of the repo.
+
+The assets folder contains the NEW/UPDATED image files used by this pack. Existing website image files already in your repository should be left exactly where they are.
+
+This pack includes:
+- correctly named index.html
+- standalone Gallery link in the homepage navigation
+- corrected homepage image choices
+- equal-size three-image service galleries
+- expanded Instagram-style gallery
+- updated image alt text/captions
+- new images organised inside /assets/
+- favicon organised inside /assets/
+
+Do NOT delete your existing images, vercel.json, or any other files not included here.

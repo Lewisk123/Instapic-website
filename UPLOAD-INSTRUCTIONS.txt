@@ -1,27 +1,11 @@
-INSTAPIC SEO PACK — STEP 1
+1. Extract this ZIP on your computer.
+2. Open the extracted folder.
+3. Select EVERYTHING INSIDE it: all HTML/XML/TXT files plus the assets folder.
+4. GitHub repo -> Add file -> Upload files.
+5. Drag those selected items into the upload area.
+6. Confirm index.html and gallery.html are at the ROOT, and assets appears as a folder at the ROOT.
+7. Commit: Instapic visual gallery pack v3.
+8. Wait for Vercel to deploy, then hard refresh the live site.
 
-Upload these files to the ROOT of the Instapic GitHub repository.
-Choose to overwrite files with the same names.
-
-This pack intentionally does NOT include image files because your current repository already contains the referenced images.
-
-New pages added:
-- light-up-letter-hire-edinburgh.html
-- magic-mirror-hire-edinburgh.html
-- flower-wall-hire-edinburgh.html
-- floral-arch-hire-scotland.html
-- 404.html
-
-Existing pages updated:
-- index.html
-- gallery.html
-- packages.html
-- contact.html
-- photo-booth-hire-edinburgh.html
-- led-dance-floor-hire-edinburgh.html
-- wedding-packages-scotland.html
-- venue pages
-- sitemap.xml
-- robots.txt
-
-After deployment: check homepage, one new service page, contact form, and sitemap URL before doing Search Console work.
+Do NOT drag the outer folder itself into GitHub.
+Do NOT delete existing files that are not part of this pack.
