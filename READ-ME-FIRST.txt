@@ -1,20 +1,23 @@
-INSTAPIC VISUAL + GALLERY PACK v3
+INSTAPIC VISUAL + GALLERY PACK v4
 
-IMPORTANT: Upload the CONTENTS of this folder to the ROOT of your GitHub repository.
-Do not upload the outer INSTAPIC folder itself.
+WHAT THIS SMALL FINAL UPDATE DOES
+- Adds a clear public "Gallery" link to the homepage top navigation.
+- Keeps "Client Galleries" separate for Pixieset customer downloads.
+- Adds Gallery to the homepage footer.
+- Reworks gallery card titles and alt text around useful local searches:
+  Edinburgh, Glasgow, Dunfermline, Dundee and wider Scotland.
+- Removes misleading venue-style labels from generic photos.
+- Makes every gallery image clickable and links it to the relevant service page.
+- Keeps known venue names only where the venue is genuinely known.
 
-You should see index.html, gallery.html, the service HTML files, and an assets folder at the root of the repo.
+UPLOAD
+1. Extract this ZIP.
+2. Open the extracted folder.
+3. Upload the CONTENTS to the ROOT of the GitHub repository.
+4. Allow index.html and gallery.html to replace the existing files.
+5. Upload the assets folder too (existing files can simply overwrite identical versions).
+6. Commit.
+7. Wait for Vercel to deploy and hard refresh the website.
 
-The assets folder contains the NEW/UPDATED image files used by this pack. Existing website image files already in your repository should be left exactly where they are.
-
-This pack includes:
-- correctly named index.html
-- standalone Gallery link in the homepage navigation
-- corrected homepage image choices
-- equal-size three-image service galleries
-- expanded Instagram-style gallery
-- updated image alt text/captions
-- new images organised inside /assets/
-- favicon organised inside /assets/
-
-Do NOT delete your existing images, vercel.json, or any other files not included here.
+Suggested commit:
+Instapic final gallery navigation and local SEO update
