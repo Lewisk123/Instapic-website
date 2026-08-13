@@ -1,6 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- Instapic Google Ads tag + Consent Mode v2 -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  (function() {
+    var savedConsent = localStorage.getItem('instapic_google_consent');
+    var granted = savedConsent === 'granted';
+
+    gtag('consent', 'default', {
+      'ad_storage': granted ? 'granted' : 'denied',
+      'ad_user_data': granted ? 'granted' : 'denied',
+      'ad_personalization': granted ? 'granted' : 'denied',
+      'analytics_storage': 'denied',
+      'functionality_storage': 'granted',
+      'security_storage': 'granted',
+      'wait_for_update': 500
+    });
+
+    gtag('set', 'ads_data_redaction', true);
+  })();
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18387596053"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'AW-18387596053');
+</script>
+<!-- End Instapic Google Ads tag -->
+
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Check Availability &amp; Build Your Event Quote | Instapic</title>
@@ -117,5 +146,79 @@ ${document.getElementById('notes').value}`;
   window.location.href=`mailto:info@instapicphotobooth.co.uk?subject=${subject}&body=${encodedBody}`;
 })
 </script>
-<a class="floating-prices" href="/packages.html">Check Prices</a></body>
+<a class="floating-prices" href="/packages.html">Check Prices</a><!-- Instapic cookie consent -->
+<style id="instapic-cookie-style">
+#instapic-cookie-banner{
+  position:fixed;left:18px;right:18px;bottom:18px;z-index:99999;
+  max-width:760px;margin:0 auto;padding:18px 20px;border-radius:18px;
+  background:#111;color:#fff;box-shadow:0 16px 45px rgba(0,0,0,.35);
+  font-family:Arial,Helvetica,sans-serif;display:none;
+}
+#instapic-cookie-banner p{margin:0 0 12px;line-height:1.5;font-size:14px;color:#eee}
+#instapic-cookie-banner strong{display:block;margin-bottom:6px;font-size:16px}
+#instapic-cookie-banner .cookie-actions{display:flex;gap:9px;flex-wrap:wrap}
+#instapic-cookie-banner button,
+#instapic-cookie-settings{
+  border:0;border-radius:999px;padding:11px 16px;font-weight:800;cursor:pointer;
+}
+#instapic-cookie-accept{background:#c6a46a;color:#111}
+#instapic-cookie-reject{background:#fff;color:#111}
+#instapic-cookie-settings{
+  position:fixed;left:14px;bottom:14px;z-index:99998;
+  background:#111;color:#fff;font-size:11px;padding:9px 12px;
+  box-shadow:0 8px 22px rgba(0,0,0,.25);display:none;
+}
+@media(max-width:600px){
+  #instapic-cookie-banner{left:10px;right:10px;bottom:10px}
+  #instapic-cookie-settings{left:10px;bottom:10px}
+}
+</style>
+
+<div id="instapic-cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie preferences">
+  <strong>Cookie preferences</strong>
+  <p>We use Google Ads measurement to understand whether our advertising leads to enquiries. You can accept or reject advertising cookies.</p>
+  <div class="cookie-actions">
+    <button type="button" id="instapic-cookie-accept">Accept</button>
+    <button type="button" id="instapic-cookie-reject">Reject</button>
+  </div>
+</div>
+<button type="button" id="instapic-cookie-settings">Cookie settings</button>
+
+<script>
+(function(){
+  var banner = document.getElementById('instapic-cookie-banner');
+  var settings = document.getElementById('instapic-cookie-settings');
+  var accept = document.getElementById('instapic-cookie-accept');
+  var reject = document.getElementById('instapic-cookie-reject');
+
+  function updateConsent(value){
+    var isGranted = value === 'granted';
+    localStorage.setItem('instapic_google_consent', value);
+    gtag('consent', 'update', {
+      'ad_storage': isGranted ? 'granted' : 'denied',
+      'ad_user_data': isGranted ? 'granted' : 'denied',
+      'ad_personalization': isGranted ? 'granted' : 'denied',
+      'analytics_storage': 'denied'
+    });
+    banner.style.display = 'none';
+    settings.style.display = 'block';
+  }
+
+  accept.addEventListener('click', function(){ updateConsent('granted'); });
+  reject.addEventListener('click', function(){ updateConsent('denied'); });
+
+  settings.addEventListener('click', function(){
+    banner.style.display = 'block';
+    settings.style.display = 'none';
+  });
+
+  if(localStorage.getItem('instapic_google_consent')){
+    settings.style.display = 'block';
+  } else {
+    banner.style.display = 'block';
+  }
+})();
+</script>
+<!-- End Instapic cookie consent -->
+</body>
 </html>
