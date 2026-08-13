@@ -25,7 +25,30 @@ const priced=document.querySelectorAll('.priced');
 function money(n){return '£'+Math.round(n).toLocaleString('en-GB')}
 function updateTotals(){let subtotal=0;let items=0;priced.forEach(s=>{const v=Number(s.value);if(v>0){subtotal+=v;items++}});let rate=0;if(items>=4)rate=.15;else if(items>=3)rate=.10;const saving=subtotal*rate;const total=subtotal-saving;document.getElementById('items').innerText=items;document.getElementById('subtotal').innerText=money(subtotal);document.getElementById('saving').innerText=saving>0?'-'+money(saving):'£0';document.getElementById('total').innerText=money(total)}
 priced.forEach(s=>s.addEventListener('change',updateTotals));updateTotals();
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();let lines=[];priced.forEach(s=>{if(Number(s.value)>0)lines.push(s.previousElementSibling?.innerText+': '+s.options[s.selectedIndex].text)});const body=`New Instapic Enquiry
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+
+  let lines=[];
+  priced.forEach(s=>{
+    const value=Number(s.value);
+    if(value>0){
+      const service=s.previousElementSibling?.innerText || 'Selected Service';
+      const optionText=s.options[s.selectedIndex].text
+        .replace(/\s*-\s*£[\d,]+/g,'')
+        .replace(/\s*-\s*From\s*£[\d,]+/gi,'')
+        .trim();
+      const detail=optionText && optionText.toLowerCase()!==service.toLowerCase()
+        ? ` (${optionText})`
+        : '';
+      lines.push(`${service}${detail} - GBP ${value.toLocaleString('en-GB')}`);
+    }
+  });
+
+  const totalValue = priced
+    ? document.getElementById('total').innerText.replace('£','GBP ')
+    : '';
+
+  const body=`New Instapic Enquiry
 
 Name: ${document.getElementById('name').value}
 Email: ${document.getElementById('email').value}
@@ -36,10 +59,15 @@ Venue: ${document.getElementById('venue').value}
 Selected Package:
 ${lines.join('\n')}
 
-Estimated Total: ${document.getElementById('total').innerText}
+Estimated Total: ${totalValue}
 
 Extra Details:
-${document.getElementById('notes').value}`;window.location.href=`mailto:info@instapicphotobooth.co.uk?subject=${encodeURIComponent('Instapic Enquiry')}&body=${encodeURIComponent(body)}`})
+${document.getElementById('notes').value}`;
+
+  const subject=encodeURIComponent('Instapic Enquiry');
+  const encodedBody=encodeURIComponent(body);
+  window.location.href=`mailto:info@instapicphotobooth.co.uk?subject=${subject}&body=${encodedBody}`;
+})
 </script>
 </body>
 </html>
