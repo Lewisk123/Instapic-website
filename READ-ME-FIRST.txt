@@ -1,23 +1,33 @@
-INSTAPIC VISUAL + GALLERY PACK v4
+INSTAPIC FINAL CONVERSION UPDATE
 
-WHAT THIS SMALL FINAL UPDATE DOES
-- Adds a clear public "Gallery" link to the homepage top navigation.
-- Keeps "Client Galleries" separate for Pixieset customer downloads.
-- Adds Gallery to the homepage footer.
-- Reworks gallery card titles and alt text around useful local searches:
-  Edinburgh, Glasgow, Dunfermline, Dundee and wider Scotland.
-- Removes misleading venue-style labels from generic photos.
-- Makes every gallery image clickable and links it to the relevant service page.
-- Keeps known venue names only where the venue is genuinely known.
+This combines the recent Instapic fixes into ONE upload.
+
+INCLUDED
+- Keeps the new public Gallery and local SEO/gallery improvements.
+- Homepage hero now has clear CHECK PRICES + GET A QUOTE choices.
+- Adds a pricing/quote CTA immediately after the main service cards.
+- Adds easy CHECK PRICES buttons around the site.
+- Adds a sticky CHECK PRICES button on browsing/service/gallery pages, especially useful on mobile.
+- Gallery includes a mid-gallery pricing/quote prompt.
+- Service and venue pages have clearer pricing + quote routes.
+- Package builder keeps normal £ pricing on screen, but outgoing enquiry emails use GBP to avoid the email encoding glitch.
+- Contact enquiry email formatting fix is included.
+- No URL names, canonicals or SEO page structure have been changed.
 
 UPLOAD
 1. Extract this ZIP.
 2. Open the extracted folder.
-3. Upload the CONTENTS to the ROOT of the GitHub repository.
-4. Allow index.html and gallery.html to replace the existing files.
-5. Upload the assets folder too (existing files can simply overwrite identical versions).
-6. Commit.
-7. Wait for Vercel to deploy and hard refresh the website.
+3. Upload EVERYTHING INSIDE it to the ROOT of your Instapic GitHub repo.
+4. Allow files to overwrite the existing versions.
+5. Commit.
+6. Wait for Vercel deployment and hard-refresh the live site.
 
 Suggested commit:
-Instapic final gallery navigation and local SEO update
+Instapic final conversion and enquiry fixes
+
+QUICK TEST AFTER DEPLOYMENT
+- Homepage: Check Prices and Get A Quote visible.
+- Gallery: Check Prices easy to find.
+- One service page: sticky Check Prices works.
+- Packages: builder opens and pricing works.
+- Contact: send one test enquiry and confirm the email formatting is clean.
